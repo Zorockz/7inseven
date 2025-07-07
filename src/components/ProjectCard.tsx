@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Star, Users } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -9,11 +7,6 @@ interface ProjectCardProps {
   description: string;
   timeAgo: string;
   icon: string;
-  isStarred?: boolean;
-  teamMembers: Array<{
-    name: string;
-    avatar?: string;
-  }>;
   progressColor: string;
 }
 
@@ -23,55 +16,43 @@ export function ProjectCard({
   description,
   timeAgo,
   icon,
-  isStarred = false,
-  teamMembers,
   progressColor
 }: ProjectCardProps) {
   return (
-    <Card className="relative h-full transition-all duration-200 hover:shadow-lg">
+    <Card className="group relative h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/80 backdrop-blur-sm border-2 hover:border-primary/20">
       <CardHeader className="pb-4">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-muted-foreground">{timeAgo}</span>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-lg">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
+            {timeAgo}
+          </span>
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/20 flex items-center justify-center text-2xl shadow-sm">
               {icon}
             </div>
-            {isStarred && (
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-            )}
+            <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" />
           </div>
         </div>
         
         <div>
-          <h3 className="text-xl font-semibold mb-1">{title}</h3>
-          <p className="text-sm text-muted-foreground mb-2">{company}</p>
+          <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground mb-3 font-medium">{company}</p>
           <p className="text-sm text-foreground/80 leading-relaxed">{description}</p>
         </div>
       </CardHeader>
       
       <CardContent className="pt-0">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1">
-            {teamMembers.slice(0, 3).map((member, index) => (
-              <Avatar key={index} className="w-6 h-6 border-2 border-background">
-                <AvatarImage src={member.avatar} />
-                <AvatarFallback className="text-xs">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </AvatarFallback>
-              </Avatar>
-            ))}
-            {teamMembers.length > 3 && (
-              <Badge variant="secondary" className="text-xs">
-                +{teamMembers.length - 3}
-              </Badge>
-            )}
+          <div className={`px-3 py-1 rounded-full text-xs font-medium text-white ${progressColor}`}>
+            Active
           </div>
           
           <div className="flex gap-1">
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className={`w-1 h-6 rounded-full ${progressColor}`}
+                className={`w-1.5 h-8 rounded-full ${progressColor} opacity-${80 - i * 15}`}
               />
             ))}
           </div>

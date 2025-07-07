@@ -1,23 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Plus, User } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 
-const starredProjects = [
+const projects = [
   {
     title: "E-Commerce Platform",
     company: "7inseven Digital",
     description: "Modern shopping experience with advanced product recommendations and seamless checkout process.",
     timeAgo: "6 hours ago",
     icon: "🛒",
-    isStarred: true,
-    teamMembers: [
-      { name: "Alex Johnson", avatar: "" },
-      { name: "Sarah Chen", avatar: "" },
-      { name: "Mike Wilson", avatar: "" }
-    ],
-    progressColor: "bg-blue-400"
+    progressColor: "bg-gradient-to-r from-blue-500 to-blue-600"
   },
   {
     title: "Portfolio Showcase",
@@ -25,12 +18,7 @@ const starredProjects = [
     description: "Interactive portfolio website showcasing creative work with smooth animations and responsive design.",
     timeAgo: "3 days ago",
     icon: "🎨",
-    isStarred: true,
-    teamMembers: [
-      { name: "Emma Davis", avatar: "" },
-      { name: "Chris Brown", avatar: "" }
-    ],
-    progressColor: "bg-purple-400"
+    progressColor: "bg-gradient-to-r from-purple-500 to-purple-600"
   },
   {
     title: "Task Management",
@@ -38,30 +26,15 @@ const starredProjects = [
     description: "Streamlined task management system with team collaboration and project tracking features.",
     timeAgo: "6 hours ago",
     icon: "✅",
-    isStarred: true,
-    teamMembers: [
-      { name: "Lisa Wang", avatar: "" },
-      { name: "David Kim", avatar: "" },
-      { name: "Rachel Green", avatar: "" }
-    ],
-    progressColor: "bg-green-400"
-  }
-];
-
-const allProjects = [
-  ...starredProjects,
+    progressColor: "bg-gradient-to-r from-green-500 to-green-600"
+  },
   {
     title: "Weather Dashboard",
     company: "Climate Tech",
     description: "Real-time weather monitoring with detailed forecasts and climate data visualization.",
     timeAgo: "3 hours ago",
     icon: "🌤️",
-    isStarred: false,
-    teamMembers: [
-      { name: "Tom Anderson", avatar: "" },
-      { name: "Jennifer Liu", avatar: "" }
-    ],
-    progressColor: "bg-cyan-400"
+    progressColor: "bg-gradient-to-r from-cyan-500 to-cyan-600"
   },
   {
     title: "Music Streaming",
@@ -69,13 +42,7 @@ const allProjects = [
     description: "High-quality music streaming platform with personalized playlists and social features.",
     timeAgo: "5 days ago",
     icon: "🎵",
-    isStarred: false,
-    teamMembers: [
-      { name: "Kevin Park", avatar: "" },
-      { name: "Amanda Foster", avatar: "" },
-      { name: "Jason Lee", avatar: "" }
-    ],
-    progressColor: "bg-pink-400"
+    progressColor: "bg-gradient-to-r from-pink-500 to-pink-600"
   },
   {
     title: "Fitness Tracker",
@@ -83,32 +50,29 @@ const allProjects = [
     description: "Comprehensive fitness tracking with workout plans and progress monitoring.",
     timeAgo: "3 months ago",
     icon: "💪",
-    isStarred: false,
-    teamMembers: [
-      { name: "Maria Rodriguez", avatar: "" },
-      { name: "Steve Johnson", avatar: "" }
-    ],
-    progressColor: "bg-orange-400"
+    progressColor: "bg-gradient-to-r from-orange-500 to-orange-600"
   }
 ];
 
 export function ProjectDashboard() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       {/* Header */}
-      <header className="flex items-center justify-between p-6 border-b">
-        <div className="flex items-center gap-4">
-          <h1 className="text-2xl font-bold">7inseven</h1>
-          <Button size="sm" className="gap-2">
+      <header className="flex items-center justify-between p-8 border-b bg-card/50 backdrop-blur-sm">
+        <div className="flex items-center gap-6">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            projects
+          </h1>
+          <Button size="sm" className="gap-2 shadow-lg">
             <Plus className="w-4 h-4" />
             NEW PROJECT
           </Button>
         </div>
         
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium">BEN CLINE</span>
-          <Avatar className="w-8 h-8">
-            <AvatarFallback>
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-muted-foreground">BEN CLINE</span>
+          <Avatar className="w-9 h-9 ring-2 ring-primary/20">
+            <AvatarFallback className="bg-primary text-primary-foreground">
               <User className="w-4 h-4" />
             </AvatarFallback>
           </Avatar>
@@ -116,29 +80,12 @@ export function ProjectDashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="p-6">
-        <Tabs defaultValue="starred" className="w-full">
-          <TabsList className="mb-8">
-            <TabsTrigger value="starred">PROJECTS / STARRED</TabsTrigger>
-            <TabsTrigger value="all">PROJECTS / ALL</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="starred" className="space-y-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {starredProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="all" className="space-y-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+      <main className="p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
       </main>
     </div>
   );
