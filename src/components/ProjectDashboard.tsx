@@ -63,10 +63,11 @@ export function ProjectDashboard() {
         <div className="relative flex items-center justify-between p-8">
           <div className="flex items-center gap-8">
             <div className="flex flex-col">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
-                projects
+              <h1 className="text-5xl font-black bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent tracking-tight">
+                Projects
               </h1>
-              <div className="h-1 w-16 bg-gradient-to-r from-primary to-accent rounded-full mt-1"></div>
+              <p className="text-sm text-muted-foreground/80 font-medium mt-1">Creative workspace for digital innovations</p>
+              <div className="h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-2"></div>
             </div>
             <Button size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90">
               <Plus className="w-5 h-5" />
@@ -76,8 +77,10 @@ export function ProjectDashboard() {
           
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <span className="text-sm font-semibold text-foreground">BEN CLINE</span>
-              <p className="text-xs text-muted-foreground">Project Manager</p>
+              <h2 className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                BEN CLINE
+              </h2>
+              <p className="text-sm text-muted-foreground font-medium">Lead Developer & Project Manager</p>
             </div>
             <Avatar className="w-12 h-12 ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
               <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground font-semibold">
