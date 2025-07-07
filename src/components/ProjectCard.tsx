@@ -43,18 +43,9 @@ export function ProjectCard({
       </CardHeader>
       
       <CardContent className="pt-0">
-        <div className="flex items-center justify-between">
-          <div className={`px-3 py-1 rounded-full text-xs font-medium text-white ${progressColor}`}>
+        <div className="flex items-center justify-end">
+          <div className={`px-4 py-2 rounded-full text-xs font-semibold text-white ${progressColor} shadow-sm`}>
             Active
-          </div>
-          
-          <div className="flex gap-1">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className={`w-1.5 h-8 rounded-full ${progressColor} opacity-${80 - i * 15}`}
-              />
-            ))}
           </div>
         </div>
       </CardContent>
