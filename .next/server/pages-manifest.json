@@ -1,8 +1,10 @@
 {
   "/_app": "pages/_app.js",
+  "/404": "pages/404.html",
+  "/api/realtalk": "pages/api/realtalk.js",
+  "/contact": "pages/contact.html",
+  "/": "pages/index.html",
+  "/realtalk": "pages/realtalk.html",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/realtalk": "pages/realtalk.js",
-  "/": "pages/index.js",
-  "/contact": "pages/contact.js"
+  "/_document": "pages/_document.js"
 }

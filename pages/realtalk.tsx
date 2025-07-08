@@ -60,7 +60,7 @@ const RealTalk = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Unknown error');
       setResponse(data.reply);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setResponse("Sorry, I couldn't process your request right now. Please try again.");
     } finally {
       setIsLoading(false);
