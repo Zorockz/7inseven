@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "dotenv -e ../.env -- next dev",
-    "build": "dotenv -e ../.env -- next build",
-    "start": "dotenv -e ../.env -- next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
