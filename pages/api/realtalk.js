@@ -1,12 +1,10 @@
 // pages/api/realtalk.js
 
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -33,7 +31,7 @@ Your response:
 `;
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: "You are an emotionally honest advice expert." },
@@ -42,7 +40,7 @@ Your response:
       temperature: 0.9,
     });
 
-    const reply = completion.data.choices[0].message.content.trim();
+    const reply = completion.choices[0].message.content.trim();
     return res.status(200).json({ reply });
   } catch (err) {
     console.error("OpenAI error:", err.message);

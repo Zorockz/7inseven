@@ -102,7 +102,7 @@ export function ProjectDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             index === 0 ? (
-              <Link href="/gpt-suite/realtalk" key={index} style={{ textDecoration: 'none' }}>
+              <Link href="/realtalk" key={index} style={{ textDecoration: 'none' }}>
                 <ProjectCard {...project} />
               </Link>
             ) : (
