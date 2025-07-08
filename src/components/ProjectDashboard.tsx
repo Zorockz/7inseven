@@ -1,15 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Plus, User } from "lucide-react";
+import { Plus, User, Mail } from "lucide-react";
+import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "RealTalk Advice App",
     company: "7inseven Digital",
-    description: "Modern shopping experience with advanced product recommendations and seamless checkout process.",
-    timeAgo: "6 hours ago",
-    icon: "🛒",
+    description: "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
+    timeAgo: "just launched",
+    icon: "💬",
     progressColor: "bg-gradient-to-r from-blue-500 to-blue-600"
   },
   {
@@ -66,13 +67,18 @@ export function ProjectDashboard() {
               <h1 className="text-5xl font-black bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent tracking-tight">
                 Projects
               </h1>
-              <p className="text-sm text-muted-foreground/80 font-medium mt-1">Creative workspace for digital innovations</p>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-2"></div>
             </div>
             <Button size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90">
               <Plus className="w-5 h-5" />
               NEW PROJECT
             </Button>
+            <Link href="/contact">
+              <Button variant="outline" size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200">
+                <Mail className="w-5 h-5" />
+                CONTACT ME
+              </Button>
+            </Link>
           </div>
           
           <div className="flex items-center gap-4">
@@ -80,7 +86,7 @@ export function ProjectDashboard() {
               <h2 className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
                 BEN CLINE
               </h2>
-              <p className="text-sm text-muted-foreground font-medium">Lead Developer & Project Manager</p>
+              <p className="text-sm text-muted-foreground font-medium">Project Manager</p>
             </div>
             <Avatar className="w-12 h-12 ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
               <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground font-semibold">
@@ -95,7 +101,13 @@ export function ProjectDashboard() {
       <main className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            index === 0 ? (
+              <Link href="/gpt-suite/realtalk" key={index} style={{ textDecoration: 'none' }}>
+                <ProjectCard {...project} />
+              </Link>
+            ) : (
+              <ProjectCard key={index} {...project} />
+            )
           ))}
         </div>
       </main>

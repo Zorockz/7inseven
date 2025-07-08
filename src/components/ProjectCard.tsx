@@ -21,10 +21,7 @@ export function ProjectCard({
   return (
     <Card className="group relative h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/80 backdrop-blur-sm border-2 hover:border-primary/20">
       <CardHeader className="pb-4">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
-            {timeAgo}
-          </span>
+        <div className="flex items-center justify-end mb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/20 flex items-center justify-center text-2xl shadow-sm">
               {icon}
