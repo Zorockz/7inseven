@@ -1,3 +1,4 @@
+require('dotenv').config({ path: '../../.env' });
 // pages/api/realtalk.js
 
 import OpenAI from "openai";

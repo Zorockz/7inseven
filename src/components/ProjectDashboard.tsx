@@ -4,55 +4,24 @@ import { Plus, User, Mail } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 
+function generateComingSoonProjects(count: number) {
+  return Array.from({ length: count }, () => ({
+    title: "Coming soon",
+    company: "Zorephona",
+    progressColor: "bg-gradient-to-r from-gray-400 to-gray-500"
+  }));
+}
+
 const projects = [
   {
     title: "RealTalk Advice App",
-    company: "7inseven Digital",
+    company: "7inseven",
     description: "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
     timeAgo: "just launched",
-    icon: "💬",
+    icon: "💡",
     progressColor: "bg-gradient-to-r from-blue-500 to-blue-600"
   },
-  {
-    title: "Portfolio Showcase",
-    company: "Creative Studio",
-    description: "Interactive portfolio website showcasing creative work with smooth animations and responsive design.",
-    timeAgo: "3 days ago",
-    icon: "🎨",
-    progressColor: "bg-gradient-to-r from-purple-500 to-purple-600"
-  },
-  {
-    title: "Task Management",
-    company: "Productivity Co",
-    description: "Streamlined task management system with team collaboration and project tracking features.",
-    timeAgo: "6 hours ago",
-    icon: "✅",
-    progressColor: "bg-gradient-to-r from-green-500 to-green-600"
-  },
-  {
-    title: "Weather Dashboard",
-    company: "Climate Tech",
-    description: "Real-time weather monitoring with detailed forecasts and climate data visualization.",
-    timeAgo: "3 hours ago",
-    icon: "🌤️",
-    progressColor: "bg-gradient-to-r from-cyan-500 to-cyan-600"
-  },
-  {
-    title: "Music Streaming",
-    company: "Audio Labs",
-    description: "High-quality music streaming platform with personalized playlists and social features.",
-    timeAgo: "5 days ago",
-    icon: "🎵",
-    progressColor: "bg-gradient-to-r from-pink-500 to-pink-600"
-  },
-  {
-    title: "Fitness Tracker",
-    company: "Health Plus",
-    description: "Comprehensive fitness tracking with workout plans and progress monitoring.",
-    timeAgo: "3 months ago",
-    icon: "💪",
-    progressColor: "bg-gradient-to-r from-orange-500 to-orange-600"
-  }
+  ...generateComingSoonProjects(5)
 ];
 
 export function ProjectDashboard() {
@@ -84,9 +53,9 @@ export function ProjectDashboard() {
           <div className="flex items-center gap-4">
             <div className="text-right">
               <h2 className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                BEN CLINE
+                Zorephona
               </h2>
-              <p className="text-sm text-muted-foreground font-medium">Project Manager</p>
+              <p className="text-sm text-muted-foreground font-medium">student</p>
             </div>
             <Avatar className="w-12 h-12 ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
               <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground font-semibold">
