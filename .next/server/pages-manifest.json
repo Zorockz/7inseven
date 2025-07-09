@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/api/realtalk": "pages/api/realtalk.js",
   "/realtalk": "pages/realtalk.js"
 }

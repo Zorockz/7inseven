@@ -19,9 +19,20 @@ const projects = [
     description: "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
     timeAgo: "just launched",
     icon: "💡",
-    progressColor: "bg-gradient-to-r from-blue-500 to-blue-600"
+    progressColor: "bg-gradient-to-r from-blue-500 to-blue-600",
+    href: "/realtalk",
+    active: true
   },
-  ...generateComingSoonProjects(5)
+  {
+    title: "SayLess: Code the Subtext",
+    company: "Zorephona",
+    description: "Decode what people really mean when they text you. AI-powered subtext analyzer.",
+    timeAgo: "new!",
+    icon: "🕵️‍♂️",
+    progressColor: "bg-gradient-to-r from-pink-500 to-yellow-500",
+    href: "http://localhost:5173",
+    active: true
+  }
 ];
 
 export function ProjectDashboard() {
@@ -70,13 +81,9 @@ export function ProjectDashboard() {
       <main className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            index === 0 ? (
-              <Link href="/realtalk" key={index} style={{ textDecoration: 'none' }}>
-                <ProjectCard {...project} />
-              </Link>
-            ) : (
-              <ProjectCard key={index} {...project} />
-            )
+            <Link href={project.href} key={index} style={{ textDecoration: 'none' }} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+              <ProjectCard {...project} />
+            </Link>
           ))}
         </div>
       </main>
