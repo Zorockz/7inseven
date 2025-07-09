@@ -1,10 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/404": "pages/404.html",
-  "/api/realtalk": "pages/api/realtalk.js",
-  "/contact": "pages/contact.html",
-  "/": "pages/index.html",
-  "/realtalk": "pages/realtalk.html",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
-}
+{"/_app":"pages/_app.js","/404":"pages/404.html","/contact":"pages/contact.html","/":"pages/index.html","/realtalk":"pages/realtalk.html","/_error":"pages/_error.js","/api/realtalk":"pages/api/realtalk.js","/_document":"pages/_document.js"}
