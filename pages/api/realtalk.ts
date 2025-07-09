@@ -5,7 +5,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log('API Route called with method:', req.method);
+  console.log('Request headers:', req.headers);
+  console.log('Request body:', req.body);
+
+  if (req.method === "GET") {
+    return res.status(200).json({ message: "GET method is allowed. Endpoint is working." });
+  }
+
   if (req.method !== "POST") {
+    console.log('Method not allowed, returning 405');
     return res.status(405).json({ message: "Method not allowed" });
   }
 
