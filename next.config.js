@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  experimental: {
-    esmExternals: true
-  }
+  // Removed standalone output and experimental settings for Vercel compatibility
 };
-export default nextConfig; 
+
+module.exports = nextConfig; 
