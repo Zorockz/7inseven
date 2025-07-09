@@ -42,7 +42,7 @@ const RealTalk = () => {
   const [selectedTone, setSelectedTone] = useState('chill');
   const [response, setResponse] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [method, setMethod] = useState<'POST' | 'GET'>('POST');
+  // Removed: const [method, setMethod] = useState<'POST' | 'GET'>('POST');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,21 +52,13 @@ const RealTalk = () => {
     setResponse('');
 
     try {
-      let res, data;
-      if (method === 'POST') {
-        res = await fetch('/api/realtalk', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ input: userInput, tone: selectedTone }),
-        });
-      } else {
-        // GET: send input and tone as query params
-        const params = new URLSearchParams({ input: userInput, tone: selectedTone });
-        res = await fetch(`/api/realtalk?${params.toString()}`, {
-          method: 'GET',
-        });
-      }
-      data = await res.json();
+      // Always use POST
+      const res = await fetch('/api/realtalk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: userInput, tone: selectedTone }),
+      });
+      const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Unknown error');
       setResponse(data.reply || data.message);
     } catch (error: unknown) {
@@ -142,31 +134,7 @@ const RealTalk = () => {
             </div>
 
             {/* Method selector */}
-            <div>
-              <Label className="text-sm font-medium text-gray-700 mb-2 block">Request Method</Label>
-              <div className="flex gap-4">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="method"
-                    value="POST"
-                    checked={method === 'POST'}
-                    onChange={() => setMethod('POST')}
-                  />
-                  POST
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="method"
-                    value="GET"
-                    checked={method === 'GET'}
-                    onChange={() => setMethod('GET')}
-                  />
-                  GET
-                </label>
-              </div>
-            </div>
+            {/* Removed radio buttons for POST/GET method */}
 
             <Button 
               type="submit" 
