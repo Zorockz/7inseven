@@ -1,20 +1,22 @@
 import OpenAI from "openai";
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
-  console.log('API Route called with method:', req.method);
-  console.log('Request headers:', req.headers);
-  console.log('Request body:', req.body);
+  console.log("API Route called with method:", req.method);
+  console.log("Request headers:", req.headers);
+  console.log("Request body:", req.body);
 
   if (req.method === "GET") {
-    return res.status(200).json({ message: "GET method is allowed. Endpoint is working." });
+    return res
+      .status(200)
+      .json({ message: "GET method is allowed. Endpoint is working." });
   }
 
   if (req.method !== "POST") {
-    console.log('Method not allowed, returning 405');
+    console.log("Method not allowed, returning 405");
     return res.status(405).json({ message: "Method not allowed" });
   }
 
@@ -46,7 +48,10 @@ Your response:
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "You are an emotionally honest advice expert." },
+        {
+          role: "system",
+          content: "You are an emotionally honest advice expert.",
+        },
         { role: "user", content: prompt },
       ],
       temperature: 0.9,
@@ -55,34 +60,59 @@ Your response:
     const reply = completion.choices[0]?.message?.content?.trim();
     if (!reply) {
       console.error("OpenAI API returned no reply.");
-      return res.status(500).json({ message: "No response generated from OpenAI." });
+      return res
+        .status(500)
+        .json({ message: "No response generated from OpenAI." });
     }
-    
+
     return res.status(200).json({ reply });
-  } catch (err: any) {
+  } catch (err: unknown) {
     // Enhanced error logging
+    const error = err as Error & {
+      response?: { 
+        data?: { error?: { message?: string } }; 
+        status?: number 
+      };
+      code?: string;
+    };
     console.error("OpenAI error:", {
-      name: err?.name,
-      message: err?.message,
-      stack: err?.stack,
-      response: err?.response?.data || err?.response,
-      code: err?.code,
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+      response: error?.response?.data || error?.response,
+      code: error?.code,
     });
 
     // Specific error responses
-    if (err?.code === 'ENOTFOUND' || err?.code === 'ECONNREFUSED') {
-      return res.status(502).json({ message: "Network error: Unable to reach OpenAI API." });
+    if (error?.code === "ENOTFOUND" || error?.code === "ECONNREFUSED") {
+      return res
+        .status(502)
+        .json({ message: "Network error: Unable to reach OpenAI API." });
     }
-    if (err?.response?.status === 401) {
-      return res.status(401).json({ message: "Unauthorized: Invalid or missing OpenAI API key." });
+    if (error?.response?.status === 401) {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized: Invalid or missing OpenAI API key." });
     }
-    if (err?.response?.status === 429) {
-      return res.status(429).json({ message: "Rate limit exceeded: Too many requests to OpenAI API." });
+    if (error?.response?.status === 429) {
+      return res
+        .status(429)
+        .json({
+          message: "Rate limit exceeded: Too many requests to OpenAI API.",
+        });
     }
-    if (err?.response?.data?.error?.message) {
-      return res.status(500).json({ message: `OpenAI API error: ${err.response.data.error.message}` });
+    if (error?.response?.data?.error?.message) {
+      return res
+        .status(500)
+        .json({
+          message: `OpenAI API error: ${error.response.data.error.message}`,
+        });
     }
 
-    return res.status(500).json({ message: "Failed to fetch response from GPT due to an unknown error." });
+    return res
+      .status(500)
+      .json({
+        message: "Failed to fetch response from GPT due to an unknown error.",
+      });
   }
-} 
+}

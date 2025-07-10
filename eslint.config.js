@@ -12,7 +12,7 @@ module.exports = tseslint.config(
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
       },
     },
     plugins: {
@@ -22,5 +22,5 @@ module.exports = tseslint.config(
       ...reactHooks.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": "off",
     },
-  }
+  },
 );

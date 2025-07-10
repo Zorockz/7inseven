@@ -8,6 +8,7 @@ interface ProjectCardProps {
   timeAgo?: string;
   icon?: string;
   progressColor: string;
+  active?: boolean;
 }
 
 export function ProjectCard({
@@ -16,9 +17,10 @@ export function ProjectCard({
   description,
   timeAgo,
   icon,
-  progressColor
+  progressColor,
+  active,
 }: ProjectCardProps) {
-  const isActive = title === "RealTalk Advice App";
+  const isActive = active || title === "RealTalk Advice App";
   return (
     <Card className="group relative h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card/80 backdrop-blur-sm border-2 hover:border-primary/20">
       <CardHeader className="pb-4">
@@ -36,16 +38,22 @@ export function ProjectCard({
           <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="text-sm text-muted-foreground mb-3 font-medium">{company}</p>
+          <p className="text-sm text-muted-foreground mb-3 font-medium">
+            {company}
+          </p>
           {description && (
-            <p className="text-sm text-foreground/80 leading-relaxed">{description}</p>
+            <p className="text-sm text-foreground/80 leading-relaxed">
+              {description}
+            </p>
           )}
         </div>
       </CardHeader>
       <CardContent className="pt-0">
         <div className="flex items-center justify-end">
           {isActive ? (
-            <div className={`px-4 py-2 rounded-full text-xs font-semibold text-white ${progressColor} shadow-sm`}>
+            <div
+              className={`px-4 py-2 rounded-full text-xs font-semibold text-white ${progressColor} shadow-sm`}
+            >
               Active
             </div>
           ) : (

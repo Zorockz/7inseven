@@ -8,7 +8,7 @@ function generateComingSoonProjects(count: number) {
   return Array.from({ length: count }, () => ({
     title: "Coming soon",
     company: "Zorephona",
-    progressColor: "bg-gradient-to-r from-gray-400 to-gray-500"
+    progressColor: "bg-gradient-to-r from-gray-400 to-gray-500",
   }));
 }
 
@@ -16,23 +16,25 @@ const projects = [
   {
     title: "RealTalk Advice App",
     company: "7inseven",
-    description: "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
+    description:
+      "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
     timeAgo: "just launched",
     icon: "💡",
     progressColor: "bg-gradient-to-r from-blue-500 to-blue-600",
     href: "/realtalk",
-    active: true
+    active: true,
   },
   {
     title: "SayLess: Code the Subtext",
     company: "Zorephona",
-    description: "Decode what people really mean when they text you. AI-powered subtext analyzer.",
+    description:
+      "Decode what people really mean when they text you. AI-powered subtext analyzer.",
     timeAgo: "new!",
     icon: "🕵️‍♂️",
     progressColor: "bg-gradient-to-r from-pink-500 to-yellow-500",
-    href: "http://localhost:5173",
-    active: true
-  }
+    href: "/sayless",
+    active: true,
+  },
 ];
 
 export function ProjectDashboard() {
@@ -49,24 +51,33 @@ export function ProjectDashboard() {
               </h1>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-2"></div>
             </div>
-            <Button size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90">
+            <Button
+              size="lg"
+              className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90"
+            >
               <Plus className="w-5 h-5" />
               NEW PROJECT
             </Button>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200">
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200"
+              >
                 <Mail className="w-5 h-5" />
                 CONTACT ME
               </Button>
             </Link>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <div className="text-right">
               <h2 className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
                 Zorephona
               </h2>
-              <p className="text-sm text-muted-foreground font-medium">student</p>
+              <p className="text-sm text-muted-foreground font-medium">
+                student
+              </p>
             </div>
             <Avatar className="w-12 h-12 ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
               <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-primary-foreground font-semibold">
@@ -81,7 +92,17 @@ export function ProjectDashboard() {
       <main className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Link href={project.href} key={index} style={{ textDecoration: 'none' }} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+            <Link
+              href={project.href}
+              key={index}
+              style={{ textDecoration: "none" }}
+              target={project.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                project.href.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
               <ProjectCard {...project} />
             </Link>
           ))}

@@ -4,4 +4,4 @@ const Index = () => {
   return <ProjectDashboard />;
 };
 
-export default Index; 
+export default Index;

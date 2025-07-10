@@ -20,7 +20,11 @@ const Contact = () => {
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-2"></div>
             </div>
             <Link href="/">
-              <Button variant="outline" size="lg" className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200">
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200"
+              >
                 ← Back to Projects
               </Button>
             </Link>
@@ -53,7 +57,10 @@ const Contact = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <Textarea placeholder="Tell me about your project..." rows={6} />
+                <Textarea
+                  placeholder="Tell me about your project..."
+                  rows={6}
+                />
               </div>
               <Button className="w-full gap-2 bg-gradient-to-r from-primary to-primary/90">
                 <Send className="w-4 h-4" />
@@ -72,8 +79,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-foreground/80 leading-relaxed">
-                  I'm passionate about creating digital experiences that make a difference. 
-                  Whether you have a project in mind or just want to connect, I'd love to hear from you.
+                  I'm passionate about creating digital experiences that make a
+                  difference. Whether you have a project in mind or just want to
+                  connect, I'd love to hear from you.
                 </p>
               </CardContent>
             </Card>
@@ -86,7 +94,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-sm text-muted-foreground">hello@bencline.dev</p>
+                    <p className="text-sm text-muted-foreground">
+                      hello@bencline.dev
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -98,7 +108,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-sm text-muted-foreground">
+                      +1 (555) 123-4567
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -110,7 +122,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Location</h3>
-                    <p className="text-sm text-muted-foreground">San Francisco, CA</p>
+                    <p className="text-sm text-muted-foreground">
+                      San Francisco, CA
+                    </p>
                   </div>
                 </CardContent>
               </Card>
