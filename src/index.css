@@ -8,33 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 45 25% 97%;
-    --foreground: 25 15% 25%;
+    /* FakeFlex Design System - Instagram-inspired */
+    --background: 251 100% 99%;
+    --foreground: 224 15% 5%;
 
-    --card: 40 20% 95%;
-    --card-foreground: 25 15% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 15% 5%;
 
-    --popover: 40 20% 95%;
-    --popover-foreground: 25 15% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 15% 5%;
 
-    --primary: 30 40% 65%;
-    --primary-foreground: 45 25% 97%;
+    /* Vibrant primary colors */
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 271 91% 65%;
 
-    --secondary: 40 15% 88%;
-    --secondary-foreground: 25 15% 25%;
+    /* Instagram-style secondary */
+    --secondary: 340 82% 52%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 40 15% 88%;
-    --muted-foreground: 25 10% 55%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 35 30% 85%;
-    --accent-foreground: 25 15% 25%;
+    --accent: 17 88% 59%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 35 15% 85%;
-    --input: 35 15% 85%;
-    --ring: 30 40% 65%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 271 81% 56%;
+
+    /* Custom gradient variables */
+    --gradient-instagram: linear-gradient(135deg, 
+      hsl(271 81% 56%), 
+      hsl(340 82% 52%), 
+      hsl(17 88% 59%));
+    
+    --gradient-story: linear-gradient(45deg, 
+      hsl(271 81% 56%), 
+      hsl(340 82% 52%));
+    
+    --gradient-card: linear-gradient(135deg, 
+      hsl(271 91% 65% / 0.1), 
+      hsl(340 82% 52% / 0.1));
+
+    /* Shadows with color */
+    --shadow-glow: 0 8px 32px hsl(271 81% 56% / 0.15);
+    --shadow-card: 0 4px 24px hsl(224 15% 5% / 0.08);
 
     --radius: 1rem;
 
@@ -101,5 +123,45 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-instagram {
+    background: var(--gradient-instagram);
+  }
+  
+  .bg-gradient-story {
+    background: var(--gradient-story);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }

@@ -46,6 +46,17 @@ const projects = [
     href: "/aesthetic-swipe",
     active: true,
   },
+  {
+    title: "Flex Factory: Caption Generator",
+    company: "7inseven",
+    description:
+      "Generate outrageous social media captions instantly. Perfect for flexing on your timeline with style.",
+    timeAgo: "hot!",
+    icon: "💎",
+    progressColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
+    href: "/flex-factory",
+    active: true,
+  },
 ];
 
 export function ProjectDashboard() {

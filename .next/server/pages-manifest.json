@@ -3,5 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/aesthetic-swipe": "pages/aesthetic-swipe.js"
+  "/aesthetic-swipe": "pages/aesthetic-swipe.js",
+  "/flex-factory": "pages/flex-factory.js"
 }
