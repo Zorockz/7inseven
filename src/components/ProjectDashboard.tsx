@@ -35,6 +35,17 @@ const projects = [
     href: "/sayless",
     active: true,
   },
+  {
+    title: "Aesthetic Swipe Share",
+    company: "7inseven",
+    description:
+      "Discover your aesthetic taste profile through interactive moodboard swiping. Find your visual identity.",
+    timeAgo: "latest!",
+    icon: "🎨",
+    progressColor: "bg-gradient-to-r from-purple-500 to-pink-500",
+    href: "/aesthetic-swipe",
+    active: true,
+  },
 ];
 
 export function ProjectDashboard() {
