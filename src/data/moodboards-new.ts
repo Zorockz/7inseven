@@ -466,4 +466,4 @@ export const aestheticProfiles = {
     ],
     emojis: ["📷", "🎭", "💫", "🎪", "📻", "🌙"]
   }
-}; 
+};

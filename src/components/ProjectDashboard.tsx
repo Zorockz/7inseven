@@ -57,6 +57,17 @@ const projects = [
     href: "/flex-factory",
     active: true,
   },
+  {
+    title: "Whispered Time Capsule",
+    company: "7inseven",
+    description:
+      "Send messages to your future self or loved ones. A digital time capsule that delivers your thoughts across time.",
+    timeAgo: "new!",
+    icon: "⏰",
+    progressColor: "bg-gradient-to-r from-teal-500 to-cyan-600",
+    href: "/whispered-time-capsule",
+    active: true,
+  },
 ];
 
 export function ProjectDashboard() {
