@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
-import { timeCapsuleService, TimeCapsule } from '@/lib/timeCapsuleService';
+
+interface TimeCapsule {
+  id?: string;
+  message: string;
+  emails: string[];
+  deliveryDate: Date;
+  createdAt: Date;
+  isDelivered: boolean;
+}
 
 export default function TimeCapsuleAdmin() {
   const [pendingCapsules, setPendingCapsules] = useState<TimeCapsule[]>([]);
@@ -13,8 +21,20 @@ export default function TimeCapsuleAdmin() {
   const loadPendingCapsules = async () => {
     try {
       setLoading(true);
-      // Get all time capsules (we'll filter for pending ones on the client side)
-      const capsules = await timeCapsuleService.getTimeCapsulesByEmail('admin@example.com');
+      // Get all time capsules via API route
+      const response = await fetch('/api/get-time-capsules?email=admin@example.com');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch time capsules');
+      }
+      
+      const result = await response.json();
+      const capsules: TimeCapsule[] = result.capsules.map((capsule: any) => ({
+        ...capsule,
+        deliveryDate: new Date(capsule.deliveryDate),
+        createdAt: new Date(capsule.createdAt)
+      }));
+      
       const now = new Date();
       const pending = capsules.filter(capsule => 
         capsule.deliveryDate <= now && !capsule.isDelivered
@@ -32,7 +52,7 @@ export default function TimeCapsuleAdmin() {
       setLoading(true);
       setDeliveryStatus('Triggering delivery...');
 
-      const response = await fetch('/api/manual-delivery', {
+      const response = await fetch('/api/immediate-delivery', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

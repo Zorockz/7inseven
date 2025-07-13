@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { timeCapsuleService } from "@/lib/timeCapsuleService";
+// Removed direct import of timeCapsuleService to avoid nodemailer on client side
 
 const WhisperedTimeCapsule = () => {
   const [message, setMessage] = useState("");
@@ -78,14 +78,27 @@ const WhisperedTimeCapsule = () => {
       deliveryDate.setFullYear(deliveryDate.getFullYear() + selectedYears);
       console.log('📅 Delivery date:', deliveryDate);
 
-      // Create time capsule in Firebase
-      console.log('🔥 Calling Firebase service...');
-      const capsuleId = await timeCapsuleService.createTimeCapsule({
-        message: message.trim(),
-        emails: validEmails,
-        deliveryDate: deliveryDate
+      // Create time capsule via API route
+      console.log('🔥 Calling API route...');
+      const response = await fetch('/api/create-time-capsule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message.trim(),
+          emails: validEmails,
+          deliveryDate: deliveryDate.toISOString()
+        })
       });
-      console.log('✅ Time capsule created with ID:', capsuleId);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to create time capsule');
+      }
+
+      const result = await response.json();
+      console.log('✅ Time capsule created with ID:', result.capsuleId);
 
       console.log('🔥 Firebase configured: true');
 

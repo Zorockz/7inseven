@@ -1,7 +1,18 @@
 {
   "/_app": "pages/_app.js",
+  "/404": "pages/404.js",
+  "/admin/time-capsules": "pages/admin/time-capsules.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
+  "/aesthetic-swipe": "pages/aesthetic-swipe.js",
+  "/api/cron/deliver-time-capsules": "pages/api/cron/deliver-time-capsules.js",
+  "/api/immediate-delivery": "pages/api/immediate-delivery.js",
+  "/api/test-time-capsule": "pages/api/test-time-capsule.js",
+  "/api/realtalk": "pages/api/realtalk.js",
+  "/contact": "pages/contact.js",
+  "/flex-factory": "pages/flex-factory.js",
+  "/realtalk": "pages/realtalk.js",
+  "/sayless": "pages/sayless.js",
   "/": "pages/index.js",
-  "/whispered-time-capsule": "pages/whispered-time-capsule.js"
+  "/whispered-time-capsule": "pages/whispered-time-capsule.js",
+  "/_document": "pages/_document.js"
 }

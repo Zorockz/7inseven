@@ -1,3 +1,6 @@
+// ⚠️ SERVER-SIDE ONLY: This file contains nodemailer imports and should only be used in API routes
+// Do not import this file in any .tsx components or client-side code
+
 import { 
   collection, 
   addDoc, 
