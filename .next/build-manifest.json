@@ -1,100 +1,36 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-78c92fac7aa8fdd8.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/VQt6HgFlS5QNR-MRmlU5e/_buildManifest.js",
-    "static/VQt6HgFlS5QNR-MRmlU5e/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/932-ad79e1dc2db6c6cf.js",
-      "static/chunks/pages/index-00cb50562e9f7328.js"
-    ],
-    "/404": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/pages/404-ed27844eca2071e0.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/css/fe499ec3bc987c16.css",
-      "static/chunks/pages/_app-9ccaa66c601b169c.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/pages/_error-77823ddac6993d35.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
-    "/admin/time-capsules": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/7112840a-4ae85e6a7719514c.js",
-      "static/chunks/1e297032-53c0a1290b502e86.js",
-      "static/chunks/fec483df-5fddc1f4c47a0bef.js",
-      "static/chunks/892-8142e3ee93400539.js",
-      "static/chunks/pages/admin/time-capsules-0d1a04a54b8ba21a.js"
-    ],
-    "/aesthetic-swipe": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/pages/aesthetic-swipe-955d87020aefb73e.js"
-    ],
-    "/contact": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/pages/contact-73027bf995989eb4.js"
-    ],
-    "/flex-factory": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/pages/flex-factory-c6e622666212e161.js"
-    ],
-    "/realtalk": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/248-5344ebd17e63fd77.js",
-      "static/chunks/pages/realtalk-03c023239a0e3b7a.js"
-    ],
-    "/sayless": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/248-5344ebd17e63fd77.js",
-      "static/chunks/370-31917d7e9e539e32.js",
-      "static/chunks/pages/sayless-d93b46c2e20c06ac.js"
-    ],
-    "/whispered-time-capsule": [
-      "static/chunks/webpack-880e48e2fc817058.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-f61746aa183f4a64.js",
-      "static/chunks/7112840a-4ae85e6a7719514c.js",
-      "static/chunks/1e297032-53c0a1290b502e86.js",
-      "static/chunks/fec483df-5fddc1f4c47a0bef.js",
-      "static/chunks/983-bd32366147e6a272.js",
-      "static/chunks/892-8142e3ee93400539.js",
-      "static/chunks/pages/whispered-time-capsule-b233b3b1af535473.js"
+    "/nen-type-aura-test": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/nen-type-aura-test.js"
     ]
   },
   "ampFirstPages": []

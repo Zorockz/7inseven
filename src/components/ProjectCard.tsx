@@ -5,7 +5,6 @@ interface ProjectCardProps {
   title: string;
   company: string;
   description?: string;
-  timeAgo?: string;
   icon?: string;
   progressColor: string;
   active?: boolean;
@@ -15,7 +14,6 @@ export function ProjectCard({
   title,
   company,
   description,
-  timeAgo,
   icon,
   progressColor,
   active,
@@ -35,14 +33,14 @@ export function ProjectCard({
           </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-barlow font-bold mb-1 group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="text-sm text-muted-foreground mb-3 font-medium">
+          <p className="text-sm text-muted-foreground mb-3 font-barlow font-medium">
             {company}
           </p>
           {description && (
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-foreground/80 leading-relaxed font-barlow">
               {description}
             </p>
           )}
@@ -52,12 +50,12 @@ export function ProjectCard({
         <div className="flex items-center justify-end">
           {isActive ? (
             <div
-              className={`px-4 py-2 rounded-full text-xs font-semibold text-white ${progressColor} shadow-sm`}
+              className={`px-4 py-2 rounded-full text-xs font-barlow font-semibold text-white ${progressColor} shadow-sm`}
             >
               Active
             </div>
           ) : (
-            <div className="px-4 py-2 rounded-full text-xs font-semibold text-white bg-gray-400 shadow-sm">
+            <div className="px-4 py-2 rounded-full text-xs font-barlow font-semibold text-white bg-gray-400 shadow-sm">
               inactive
             </div>
           )}

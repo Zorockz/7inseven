@@ -1,0 +1,240 @@
+/* Hunter x Hunter Nen Quiz Design System - CSS Module */
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* Quiz wrapper with CSS variables scoped to the quiz */
+.quiz-wrapper {
+  /* Hunter x Hunter Theme Colors */
+  --background: 35 25% 92%; /* Parchment beige */
+  --foreground: 0 0% 8%; /* Dark text */
+  --card: 35 30% 88%; /* Slightly darker parchment */
+  --card-foreground: 0 0% 8%;
+  --popover: 35 30% 88%;
+  --popover-foreground: 0 0% 8%;
+  --primary: 0 72% 45%; /* Deep red like Hunter logo */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 20%; /* Dark grey/black */
+  --secondary-foreground: 0 0% 98%;
+  --muted: 35 20% 85%; /* Muted parchment */
+  --muted-foreground: 0 0% 40%;
+  --accent: 180 100% 30%; /* Teal aura */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 25%; /* Dark borders */
+  --input: 35 25% 85%;
+  --ring: 0 72% 45%; /* Hunter red ring */
+
+  /* Custom Hunter theme variables */
+  --hunter-red: 0 72% 45%;
+  --hunter-red-glow: 0 72% 55%;
+  --aura-teal: 180 100% 30%;
+  --aura-purple: 270 50% 40%;
+  --aura-blue: 220 100% 50%;
+  --aura-yellow: 60 100% 50%;
+  --aura-pink: 320 100% 50%;
+  --parchment: 35 25% 92%;
+  --parchment-dark: 35 20% 85%;
+  --scanner-line: 0 0% 15%;
+  
+  /* Shadows and glows */
+  --shadow-hunter: 0 0 20px hsl(var(--hunter-red) / 0.3);
+  --shadow-aura: 0 0 30px hsl(var(--aura-teal) / 0.4);
+  --shadow-enhancer: 0 0 25px hsl(var(--hunter-red) / 0.5);
+  --shadow-emitter: 0 0 25px hsl(var(--aura-teal) / 0.5);
+  --shadow-manipulator: 0 0 25px hsl(var(--aura-purple) / 0.5);
+  --shadow-transmuter: 0 0 25px hsl(var(--aura-blue) / 0.5);
+  --shadow-conjurer: 0 0 25px hsl(var(--aura-yellow) / 0.5);
+  --shadow-specialist: 0 0 25px hsl(var(--aura-pink) / 0.5);
+  --text-glow: 0 0 10px hsl(var(--hunter-red) / 0.8);
+  
+  /* Gradients */
+  --gradient-aura: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(var(--aura-purple)));
+  --gradient-hunter: linear-gradient(45deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+  --gradient-enhancer: linear-gradient(135deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+  --gradient-emitter: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(180 100% 40%));
+  --gradient-manipulator: linear-gradient(135deg, hsl(var(--aura-purple)), hsl(270 60% 50%));
+  --gradient-transmuter: linear-gradient(135deg, hsl(var(--aura-blue)), hsl(200 100% 60%));
+  --gradient-conjurer: linear-gradient(135deg, hsl(var(--aura-yellow)), hsl(45 100% 60%));
+  --gradient-specialist: linear-gradient(135deg, hsl(var(--aura-pink)), hsl(280 100% 60%));
+  --gradient-results: radial-gradient(ellipse at center, hsl(var(--parchment-dark) / 0.95), hsl(var(--parchment) / 0.8));
+}
+
+/* Dark mode wrapper */
+.quiz-wrapper.dark {
+  --background: 0 0% 8%;
+  --foreground: 35 25% 92%;
+  --card: 0 0% 12%;
+  --card-foreground: 35 25% 92%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 35 25% 92%;
+  --primary: 0 72% 55%; /* Brighter red for dark mode */
+  --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 35 25% 92%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 180 100% 40%; /* Brighter teal for dark mode */
+  --accent-foreground: 0 0% 8%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 15%;
+  --ring: 0 72% 55%;
+  
+  /* Update custom variables for dark mode */
+  --hunter-red: 0 72% 55%;
+  --hunter-red-glow: 0 72% 65%;
+  --aura-teal: 180 100% 40%;
+  --aura-purple: 270 50% 50%;
+  --aura-blue: 220 100% 60%;
+  --aura-yellow: 60 100% 60%;
+  --aura-pink: 320 100% 60%;
+  --parchment: 0 0% 8%;
+  --parchment-dark: 0 0% 12%;
+}
+
+/* Hunter x Hunter specific components */
+.hunter-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: hsl(var(--hunter-red));
+  text-shadow: var(--text-glow);
+}
+
+@media (min-width: 768px) {
+  .hunter-title {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+.hunter-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.025em;
+  color: hsl(var(--secondary));
+}
+
+@media (min-width: 768px) {
+  .hunter-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.terminal-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.aura-glow {
+  box-shadow: var(--shadow-aura);
+}
+
+.hunter-glow {
+  box-shadow: var(--shadow-hunter);
+}
+
+.scanner-line {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    hsl(var(--scanner-line)) 50%, 
+    transparent 100%);
+  height: 2px;
+}
+
+.parchment-card {
+  background-color: hsl(var(--parchment-dark) / 0.9);
+  border: 2px solid hsl(var(--border));
+  backdrop-filter: blur(10px);
+}
+
+.hunter-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px hsl(var(--hunter-red) / 0.3);
+}
+
+.hunter-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px hsl(var(--hunter-red) / 0.5);
+}
+
+
+
+.aura-ring {
+  position: relative;
+}
+
+.aura-ring::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid hsl(var(--aura-teal) / 0.5);
+  border-radius: 50%;
+  animation: pulse-aura 2s infinite;
+}
+
+@keyframes pulse-aura {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes scanner-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+.scanner-sweep {
+  animation: scanner-sweep 3s ease-in-out infinite;
+}
+
+/* Quiz specific background */
+.quiz-background {
+  background-image: url('/parchment-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  font-family: 'Barlow Condensed', sans-serif;
+  position: relative;
+}
+
+.quiz-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/parchment-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.quiz-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: rgba(35, 25%, 92%, 0.1);
+  backdrop-filter: blur(2px);
+} 

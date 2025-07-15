@@ -63,6 +63,11 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        barlow: ["'Barlow Condensed'", 'Barlow', 'sans-serif'],
+        bebas: ["'Bebas Neue'", 'cursive'],
+        jetbrains: ["'JetBrains Mono'", 'monospace'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

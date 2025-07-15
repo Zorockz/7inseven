@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hunter x Hunter Nen Quiz Design System */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@layer base {
+  :root {
+    /* Hunter x Hunter Theme Colors */
+    --background: 35 25% 92%;
+    --foreground: 0 0% 8%;
+    --card: 35 30% 88%;
+    --card-foreground: 0 0% 8%;
+    --popover: 35 30% 88%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 72% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 35 20% 85%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 180 100% 30%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%;
+    --input: 35 25% 85%;
+    --ring: 0 72% 45%;
+    --hunter-red: 0 72% 45%;
+    --hunter-red-glow: 0 72% 55%;
+    --aura-teal: 180 100% 30%;
+    --aura-purple: 270 50% 40%;
+    --aura-blue: 220 100% 50%;
+    --aura-yellow: 60 100% 50%;
+    --aura-pink: 320 100% 50%;
+    --parchment: 35 25% 92%;
+    --parchment-dark: 35 20% 85%;
+    --scanner-line: 0 0% 15%;
+    --shadow-hunter: 0 0 20px hsl(var(--hunter-red) / 0.3);
+    --shadow-aura: 0 0 30px hsl(var(--aura-teal) / 0.4);
+    --shadow-enhancer: 0 0 25px hsl(var(--hunter-red) / 0.5);
+    --shadow-emitter: 0 0 25px hsl(var(--aura-teal) / 0.5);
+    --shadow-manipulator: 0 0 25px hsl(var(--aura-purple) / 0.5);
+    --shadow-transmuter: 0 0 25px hsl(var(--aura-blue) / 0.5);
+    --shadow-conjurer: 0 0 25px hsl(var(--aura-yellow) / 0.5);
+    --shadow-specialist: 0 0 25px hsl(var(--aura-pink) / 0.5);
+    --text-glow: 0 0 10px hsl(var(--hunter-red) / 0.8);
+    --gradient-aura: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(var(--aura-purple)));
+    --gradient-hunter: linear-gradient(45deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+    --gradient-enhancer: linear-gradient(135deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+    --gradient-emitter: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(180 100% 40%));
+    --gradient-manipulator: linear-gradient(135deg, hsl(var(--aura-purple)), hsl(270 60% 50%));
+    --gradient-transmuter: linear-gradient(135deg, hsl(var(--aura-blue)), hsl(200 100% 60%));
+    --gradient-conjurer: linear-gradient(135deg, hsl(var(--aura-yellow)), hsl(45 100% 60%));
+    --gradient-specialist: linear-gradient(135deg, hsl(var(--aura-pink)), hsl(280 100% 60%));
+    --gradient-results: radial-gradient(ellipse at center, hsl(var(--parchment-dark) / 0.95), hsl(var(--parchment) / 0.8));
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 35 25% 92%;
+    --card: 0 0% 12%;
+    --card-foreground: 35 25% 92%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 35 25% 92%;
+    --primary: 0 72% 55%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 35 25% 92%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 180 100% 40%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 72% 55%;
+    --hunter-red: 0 72% 55%;
+    --hunter-red-glow: 0 72% 65%;
+    --aura-teal: 180 100% 40%;
+    --aura-purple: 270 50% 50%;
+    --aura-blue: 220 100% 60%;
+    --aura-yellow: 60 100% 60%;
+    --aura-pink: 320 100% 60%;
+    --parchment: 0 0% 8%;
+    --parchment-dark: 0 0% 12%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-barlow;
+    background-image: url('/src/assets/parchment-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+}
+@layer components {
+  .hunter-title {
+    @apply font-bebas text-4xl md:text-6xl font-bold tracking-wider;
+    color: hsl(var(--hunter-red));
+    text-shadow: var(--text-glow);
+    letter-spacing: 0.1em;
+  }
+  .hunter-subtitle {
+    @apply font-barlow font-semibold text-lg md:text-xl tracking-wide;
+    color: hsl(var(--secondary));
+  }
+  .terminal-text {
+    @apply font-mono text-sm;
+    color: hsl(var(--muted-foreground));
+  }
+  .aura-glow {
+    box-shadow: var(--shadow-aura);
+  }
+  .hunter-glow {
+    box-shadow: var(--shadow-hunter);
+  }
+  .scanner-line {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--scanner-line)) 50%, 
+      transparent 100%);
+    height: 2px;
+  }
+  .parchment-card {
+    @apply bg-card border-2 border-border;
+    background-color: hsl(var(--parchment-dark) / 0.9);
+    backdrop-filter: blur(10px);
+  }
+  .hunter-button {
+    @apply bg-primary text-primary-foreground font-semibold py-3 px-6 rounded;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px hsl(var(--hunter-red) / 0.3);
+  }
+  .hunter-button:hover {
+    @apply scale-105;
+    box-shadow: 0 6px 25px hsl(var(--hunter-red) / 0.5);
+  }
+  .radio-hunter {
+    @apply w-5 h-5 rounded-full border-2 border-primary cursor-pointer;
+    transition: all 0.2s ease;
+  }
+  .radio-hunter:checked {
+    @apply bg-primary;
+    box-shadow: var(--shadow-hunter);
+  }
+  .aura-ring {
+    position: relative;
+  }
+  .aura-ring::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid hsl(var(--aura-teal) / 0.5);
+    border-radius: 50%;
+    animation: pulse-aura 2s infinite;
+  }
+  @keyframes pulse-aura {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  @keyframes scanner-sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+  }
+  .scanner-sweep {
+    animation: scanner-sweep 3s ease-in-out infinite;
+  }
+}
+
+/* App.css styles for root and logo (if needed) */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+.read-the-docs {
+  color: #888;
+} 

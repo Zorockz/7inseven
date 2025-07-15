@@ -1,0 +1,96 @@
+/* Hunter x Hunter Nen Quiz Global CSS Variables */
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* CSS Variables for the quiz */
+:root {
+  /* Hunter x Hunter Theme Colors */
+  --background: 35 25% 92%; /* Parchment beige */
+  --foreground: 0 0% 8%; /* Dark text */
+  --card: 35 30% 88%; /* Slightly darker parchment */
+  --card-foreground: 0 0% 8%;
+  --popover: 35 30% 88%;
+  --popover-foreground: 0 0% 8%;
+  --primary: 0 72% 45%; /* Deep red like Hunter logo */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 20%; /* Dark grey/black */
+  --secondary-foreground: 0 0% 98%;
+  --muted: 35 20% 85%; /* Muted parchment */
+  --muted-foreground: 0 0% 40%;
+  --accent: 180 100% 30%; /* Teal aura */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 25%; /* Dark borders */
+  --input: 35 25% 85%;
+  --ring: 0 72% 45%; /* Hunter red ring */
+
+  /* Custom Hunter theme variables */
+  --hunter-red: 0 72% 45%;
+  --hunter-red-glow: 0 72% 55%;
+  --aura-teal: 180 100% 30%;
+  --aura-purple: 270 50% 40%;
+  --aura-blue: 220 100% 50%;
+  --aura-yellow: 60 100% 50%;
+  --aura-pink: 320 100% 50%;
+  --parchment: 35 25% 92%;
+  --parchment-dark: 35 20% 85%;
+  --scanner-line: 0 0% 15%;
+  
+  /* Shadows and glows */
+  --shadow-hunter: 0 0 20px hsl(var(--hunter-red) / 0.3);
+  --shadow-aura: 0 0 30px hsl(var(--aura-teal) / 0.4);
+  --shadow-enhancer: 0 0 25px hsl(var(--hunter-red) / 0.5);
+  --shadow-emitter: 0 0 25px hsl(var(--aura-teal) / 0.5);
+  --shadow-manipulator: 0 0 25px hsl(var(--aura-purple) / 0.5);
+  --shadow-transmuter: 0 0 25px hsl(var(--aura-blue) / 0.5);
+  --shadow-conjurer: 0 0 25px hsl(var(--aura-yellow) / 0.5);
+  --shadow-specialist: 0 0 25px hsl(var(--aura-pink) / 0.5);
+  --text-glow: 0 0 10px hsl(var(--hunter-red) / 0.8);
+  
+  /* Gradients */
+  --gradient-aura: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(var(--aura-purple)));
+  --gradient-hunter: linear-gradient(45deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+  --gradient-enhancer: linear-gradient(135deg, hsl(var(--hunter-red)), hsl(var(--hunter-red-glow)));
+  --gradient-emitter: linear-gradient(135deg, hsl(var(--aura-teal)), hsl(180 100% 40%));
+  --gradient-manipulator: linear-gradient(135deg, hsl(var(--aura-purple)), hsl(270 60% 50%));
+  --gradient-transmuter: linear-gradient(135deg, hsl(var(--aura-blue)), hsl(200 100% 60%));
+  --gradient-conjurer: linear-gradient(135deg, hsl(var(--aura-yellow)), hsl(45 100% 60%));
+  --gradient-specialist: linear-gradient(135deg, hsl(var(--aura-pink)), hsl(280 100% 60%));
+  --gradient-results: radial-gradient(ellipse at center, hsl(var(--parchment-dark) / 0.95), hsl(var(--parchment) / 0.8));
+}
+
+/* Dark mode variables */
+.dark {
+  --background: 0 0% 8%;
+  --foreground: 35 25% 92%;
+  --card: 0 0% 12%;
+  --card-foreground: 35 25% 92%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 35 25% 92%;
+  --primary: 0 72% 55%; /* Brighter red for dark mode */
+  --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 35 25% 92%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 180 100% 40%; /* Brighter teal for dark mode */
+  --accent-foreground: 0 0% 8%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 15%;
+  --ring: 0 72% 55%;
+  
+  /* Update custom variables for dark mode */
+  --hunter-red: 0 72% 55%;
+  --hunter-red-glow: 0 72% 65%;
+  --aura-teal: 180 100% 40%;
+  --aura-purple: 270 50% 50%;
+  --aura-blue: 220 100% 60%;
+  --aura-yellow: 60 100% 60%;
+  --aura-pink: 320 100% 60%;
+  --parchment: 0 0% 8%;
+  --parchment-dark: 0 0% 12%;
+} 

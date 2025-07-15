@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -145,6 +148,55 @@ All colors MUST be HSL.
   
   .animate-bounce-in {
     animation: bounceIn 0.6s ease-out;
+  }
+  
+  /* Quiz-specific utilities */
+  .parchment-bg {
+    background-image: url('/parchment-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .khaki-bg {
+    background-color: #f5f5dc;
+  }
+  
+  .brown-text {
+    color: #7c4a03;
+  }
+  
+  .quiz-card {
+    border-radius: 0.5rem;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    position: relative;
+  }
+  
+  .choice-button {
+    min-height: 56px;
+  }
+  
+  .choice-button-selected {
+    opacity: 0.95;
+  }
+  
+  .choice-button-unselected {
+    opacity: 0.9;
+  }
+  
+  .action-button {
+    background-image: url('/parchment-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .action-button-enabled {
+    opacity: 0.8;
+  }
+  
+  .action-button-disabled {
+    opacity: 0.5;
   }
   
   @keyframes bounceIn {

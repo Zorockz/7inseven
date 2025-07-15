@@ -4,21 +4,22 @@ import { Plus, User, Mail } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "./ProjectCard";
 
-function generateComingSoonProjects(count: number) {
-  return Array.from({ length: count }, () => ({
-    title: "Coming soon",
-    company: "Zorephona",
-    progressColor: "bg-gradient-to-r from-gray-400 to-gray-500",
-  }));
+interface Project {
+  title: string;
+  company: string;
+  description: string;
+  icon: string;
+  progressColor: string;
+  href: string;
+  active: boolean;
 }
 
-const projects = [
+const projects: Project[] = [
   {
     title: "RealTalk Advice App",
     company: "7inseven",
     description:
       "Get emotionally honest, AI-powered advice in real time. No fluff, just real talk.",
-    timeAgo: "just launched",
     icon: "💡",
     progressColor: "bg-gradient-to-r from-blue-500 to-blue-600",
     href: "/realtalk",
@@ -29,7 +30,6 @@ const projects = [
     company: "Zorephona",
     description:
       "Decode what people really mean when they text you. AI-powered subtext analyzer.",
-    timeAgo: "new!",
     icon: "🕵️‍♂️",
     progressColor: "bg-gradient-to-r from-pink-500 to-yellow-500",
     href: "/sayless",
@@ -40,7 +40,6 @@ const projects = [
     company: "7inseven",
     description:
       "Discover your aesthetic taste profile through interactive moodboard swiping. Find your visual identity.",
-    timeAgo: "latest!",
     icon: "🎨",
     progressColor: "bg-gradient-to-r from-purple-500 to-pink-500",
     href: "/aesthetic-swipe",
@@ -51,7 +50,6 @@ const projects = [
     company: "7inseven",
     description:
       "Generate outrageous social media captions instantly. Perfect for flexing on your timeline with style.",
-    timeAgo: "hot!",
     icon: "💎",
     progressColor: "bg-gradient-to-r from-yellow-400 to-orange-500",
     href: "/flex-factory",
@@ -62,10 +60,19 @@ const projects = [
     company: "7inseven",
     description:
       "Send messages to your future self or loved ones. A digital time capsule that delivers your thoughts across time.",
-    timeAgo: "new!",
     icon: "⏰",
     progressColor: "bg-gradient-to-r from-teal-500 to-cyan-600",
     href: "/whispered-time-capsule",
+    active: true,
+  },
+  {
+    title: "Nen Type Aura Test",
+    company: "7inseven",
+    description:
+      "Discover your Hunter x Hunter Nen type with this interactive personality quiz. Find out if you're an Enhancer, Emitter, Manipulator, Transmuter, Conjurer, or Specialist!",
+    icon: "🔮",
+    progressColor: "bg-gradient-to-r from-indigo-500 to-purple-600",
+    href: "/nen-type-aura-test",
     active: true,
   },
 ];
@@ -79,14 +86,14 @@ export function ProjectDashboard() {
         <div className="relative flex items-center justify-between p-8">
           <div className="flex items-center gap-8">
             <div className="flex flex-col">
-              <h1 className="text-5xl font-black bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent tracking-tight">
-                Projects
+              <h1 className="text-5xl font-bebas font-black bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent tracking-wider">
+                PROJECTS
               </h1>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-2"></div>
             </div>
             <Button
               size="lg"
-              className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90"
+              className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 bg-gradient-to-r from-primary to-primary/90 font-barlow font-semibold"
             >
               <Plus className="w-5 h-5" />
               NEW PROJECT
@@ -95,7 +102,7 @@ export function ProjectDashboard() {
               <Button
                 variant="outline"
                 size="lg"
-                className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200"
+                className="gap-3 shadow-lg hover:shadow-xl transition-all duration-200 font-barlow font-semibold"
               >
                 <Mail className="w-5 h-5" />
                 CONTACT ME
@@ -105,10 +112,10 @@ export function ProjectDashboard() {
 
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <h2 className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              <h2 className="text-lg font-barlow font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
                 Zorephona
               </h2>
-              <p className="text-sm text-muted-foreground font-medium">
+              <p className="text-sm text-muted-foreground font-barlow font-medium">
                 student
               </p>
             </div>
