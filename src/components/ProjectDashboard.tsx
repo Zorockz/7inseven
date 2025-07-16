@@ -75,6 +75,16 @@ const projects: Project[] = [
     href: "/nen-type-aura-test",
     active: true,
   },
+  {
+    title: "Trace.me: OSINT Digital Footprint",
+    company: "Zorephona",
+    description:
+      "Analyze your digital footprint and see your OSINT profile. Find out what the internet knows about you!",
+    icon: "🕵️‍♀️",
+    progressColor: "bg-gradient-to-r from-green-500 to-cyan-500",
+    href: "/trace.me",
+    active: true,
+  },
 ];
 
 export function ProjectDashboard() {

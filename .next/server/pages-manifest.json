@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/nen-type-aura-test": "pages/nen-type-aura-test.js",
+  "/trace.me": "pages/trace.me.js",
   "/": "pages/index.js"
 }

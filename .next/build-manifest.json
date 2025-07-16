@@ -27,10 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/nen-type-aura-test": [
+    "/trace.me": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/nen-type-aura-test.js"
+      "static/chunks/pages/trace.me.js"
     ]
   },
   "ampFirstPages": []

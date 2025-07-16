@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cybersecurity OSINT Theme - Dark Mode First */
+@layer base {
+  :root {
+    /* Dark theme (default) */
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 13% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 13% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 84% 60%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 220 13% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 13% 9%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 142 84% 60%;
+
+    --radius: 0.75rem;
+
+    /* OSINT Theme Colors */
+    --cyber-orange: 25 95% 53%;
+    --cyber-blue: 213 94% 68%;
+    --cyber-purple: 271 81% 56%;
+    --cyber-green: 142 84% 60%;
+    --cyber-red: 0 84% 60%;
+    --cyber-yellow: 48 100% 67%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--cyber-orange)), hsl(var(--cyber-blue)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--cyber-purple)), hsl(var(--cyber-green)));
+    --gradient-danger: linear-gradient(135deg, hsl(var(--cyber-red)), hsl(var(--cyber-orange)));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--cyber-yellow)), hsl(var(--cyber-orange)));
+    --gradient-terminal: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--cyber-blue)));
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-cyber: 0 0 20px hsl(var(--cyber-green) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.5);
+    --shadow-card: 0 4px 20px hsl(220 13% 5% / 0.3);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 9%;
+    --primary: 142 84% 40%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 220 13% 9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 220 13% 9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 84% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  /* Terminal Animation */
+  .terminal-cursor {
+    @apply inline-block w-2 h-5 bg-primary ml-1;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Scan Lines Effect */
+  .scan-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0.1) 50%,
+      transparent
+    );
+    animation: scan 2s linear infinite;
+    z-index: 1;
+  }
+
+  @keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .glow-cyber {
+    box-shadow: var(--shadow-cyber);
+  }
+
+  /* Platform Icons */
+  .platform-icon {
+    @apply w-6 h-6 rounded-full flex items-center justify-center;
+    background: var(--gradient-primary);
+  }
+
+  /* Progress Bars */
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: hsl(var(--muted));
+  }
+
+  .progress-fill {
+    @apply h-full transition-all duration-1000 ease-out;
+    background: var(--gradient-terminal);
+  }
+
+  /* Card Variants */
+  .card-cyber {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-danger {
+    @apply border-red-500/30;
+    background: linear-gradient(135deg, hsl(var(--cyber-red) / 0.1), hsl(var(--background)));
+  }
+
+  .card-warning {
+    @apply border-yellow-500/30;
+    background: linear-gradient(135deg, hsl(var(--cyber-yellow) / 0.1), hsl(var(--background)));
+  }
+
+  .card-success {
+    @apply border-green-500/30;
+    background: linear-gradient(135deg, hsl(var(--cyber-green) / 0.1), hsl(var(--background)));
+  }
+} 

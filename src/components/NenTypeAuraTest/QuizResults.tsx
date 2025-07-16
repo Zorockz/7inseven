@@ -41,20 +41,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
     .filter(([,value]) => value > 0);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative z-10">
-      {/* Hunter x Hunter Logo */}
-      <div className="flex flex-col items-center space-y-8 mb-6">
-        <div className="w-64 h-32 flex items-center justify-center hunter-glow">
-          <div className="text-center">
-            <div className="font-bebas text-6xl text-primary font-bold tracking-wider drop-shadow-lg">
-              HUNTER
-            </div>
-            <div className="font-bebas text-4xl text-secondary font-bold tracking-wider drop-shadow-lg">
-              × HUNTER
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative">
       {/* Animated background effect */}
       <div className="absolute inset-0 opacity-20">
         <div 
@@ -93,15 +80,11 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
 
         {/* Main Results Card */}
         <div 
-          className="p-10 space-y-10 border-4 my-8 md:my-12 lg:my-16"
+          className="parchment-card p-10 space-y-10 border-4"
           style={{
-            backgroundImage: 'url(/parchment-bg.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            background: 'var(--gradient-results)',
             borderColor: typeInfo.color,
             boxShadow: getTypeShadow(dominantType),
-            borderRadius: '0.5rem',
-            backdropFilter: 'blur(2px)'
           }}
         >
           
@@ -139,7 +122,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
           <div className="space-y-6">
             <h3 
               className="font-barlow font-bold text-2xl border-b-4 pb-3"
-              style={{ borderColor: typeInfo.color, color: '#7c4a03' }}
+              style={{ borderColor: typeInfo.color }}
             >
               AURA PROFILE ANALYSIS
             </h3>
@@ -147,10 +130,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
               className="p-6 rounded-lg border-l-4"
               style={{ 
                 borderColor: typeInfo.color,
-                backgroundImage: 'url(/parchment-bg.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: '0.8'
+                backgroundColor: `${typeInfo.color}15`,
               }}
             >
               <p className="text-lg leading-relaxed font-medium">
@@ -163,7 +143,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
           <div className="space-y-6">
             <h3 
               className="font-barlow font-bold text-2xl border-b-4 pb-3"
-              style={{ borderColor: typeInfo.color, color: '#7c4a03' }}
+              style={{ borderColor: typeInfo.color }}
             >
               COMPLETE NEN AFFINITY BREAKDOWN
             </h3>
@@ -209,7 +189,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
           <div className="space-y-6">
             <h3 
               className="font-barlow font-bold text-2xl border-b-4 pb-3"
-              style={{ borderColor: typeInfo.color, color: '#7c4a03' }}
+              style={{ borderColor: typeInfo.color }}
             >
               SIMILAR HUNTER ARCHETYPES
             </h3>
@@ -224,11 +204,8 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
                     className="p-4 rounded-lg border-2 text-center font-semibold"
                     style={{
                       borderColor: typeInfo.color,
-                      backgroundImage: 'url(/parchment-bg.jpg)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
+                      background: `${typeInfo.color}10`,
                       boxShadow: `0 4px 15px ${typeInfo.color}20`,
-                      opacity: '0.8'
                     }}
                   >
                     {character}
@@ -242,7 +219,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
           <div className="space-y-6">
             <h3 
               className="font-barlow font-bold text-2xl border-b-4 pb-3"
-              style={{ borderColor: typeInfo.color, color: '#7c4a03' }}
+              style={{ borderColor: typeInfo.color }}
             >
               DOMINANT PERSONALITY TRAITS
             </h3>
@@ -280,24 +257,7 @@ export const QuizResults = ({ dominantType, percentages, onRestart }: QuizResult
             <div className="flex justify-center pt-4">
               <button
                 onClick={onRestart}
-                className="px-8 py-3 rounded border-2 transition-all duration-200 shadow-md text-xl font-semibold backdrop-blur-sm"
-                style={{
-                  borderColor: 'hsl(var(--primary))',
-                  backgroundImage: 'url(/parchment-bg.jpg)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  color: 'hsl(var(--primary))',
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-                  opacity: '0.8'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = '0.9';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '0.8';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-                }}
+                className="hunter-button text-xl px-12 py-4"
               >
                 RETAKE EVALUATION
               </button>
